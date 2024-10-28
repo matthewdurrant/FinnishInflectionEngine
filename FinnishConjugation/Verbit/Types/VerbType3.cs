@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinnishConjugation;
+using FinnishConjugation.Verbit;
 
-namespace FinnishConjugation.Verbit
+namespace FinnishInflectionEngine.Verbit.Types
 {
     public class VerbType3 : VerbType
     {
+        public override IPositiveVerbTense GetPresent(string infinitive) => throw new NotImplementedException();
+
         /// <summary>
         /// Catch verbs of type 3, e.g. '-lla'
         /// </summary>

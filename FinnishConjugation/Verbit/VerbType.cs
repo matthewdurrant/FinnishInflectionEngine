@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinnishInflectionEngine.Verbit;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,8 @@ namespace FinnishConjugation.Verbit
         public virtual List<string> Endings { get; }
 
         protected virtual int EndingLetters => 2;
+
+        public abstract IPositiveVerbTense GetPresent(string infinitive);
 
         public virtual bool Match(string perusVerbi)
         {

@@ -1,10 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FinnishConjugation.Verbit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinnishInflectionEngine.Verbit;
+using FinnishInflectionEngine.Verbit.Types;
 
 namespace FinnishConjugation.Verbit.Tests
 {
@@ -29,6 +30,24 @@ namespace FinnishConjugation.Verbit.Tests
             VerbType verbType = VerbMatcher.GetVerbType(verb);
 
             Assert.IsInstanceOfType(verbType, expectedType);
+        }
+
+        [TestMethod()]
+        [DataRow("sataa", "sadan", "sadamme", "en sada", "emme sada")]
+        [DataRow("puhua", "puhun", "puhumme", "en puhu", "emme puhu")]
+        [DataRow("laajentaa", "laajennan", "laajennamme", "en laajenna", "emme laajenna")]
+
+        public void Get1stPersonPresent(string infinitive, string sing, string plural, string negSing, string negPlural)
+        {
+            VerbType1 verb1 = new VerbType1();
+            verb1.GetPresent(infinitive);
+
+            Verb verb = new Verb(infinitive);
+
+            Assert.AreEqual(sing, verb.Present.FirstPersonSingular);
+            Assert.AreEqual(plural, verb.Present.FirstPersonPlural);
+            Assert.AreEqual(negSing, verb.Present.Negative.FirstPersonSingular);
+            Assert.AreEqual(negPlural, verb.Present.Negative.FirstPersonPlural);
         }
     }
 }

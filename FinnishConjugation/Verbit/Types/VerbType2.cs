@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinnishConjugation.Verbit;
 
-namespace FinnishConjugation.Verbit
+namespace FinnishInflectionEngine.Verbit.Types
 {
     public class VerbType2 : VerbType
     {
@@ -12,5 +13,7 @@ namespace FinnishConjugation.Verbit
         {
             "da", "dä"
         };
+
+        public override IPositiveVerbTense GetPresent(string infinitive) => throw new NotImplementedException();
     }
 }

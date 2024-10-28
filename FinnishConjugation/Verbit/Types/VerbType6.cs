@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FinnishConjugation.Verbit;
 
-namespace FinnishConjugation.Verbit
+namespace FinnishInflectionEngine.Verbit.Types
 {
     public class VerbType6 : VerbType
     {
@@ -14,5 +15,7 @@ namespace FinnishConjugation.Verbit
         {
             "eta", "etä"
         };
+
+        public override IPositiveVerbTense GetPresent(string infinitive) => throw new NotImplementedException();
     }
 }
